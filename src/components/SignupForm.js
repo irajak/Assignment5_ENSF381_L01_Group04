@@ -12,30 +12,24 @@ const SignupForm = ({ onSwitch }) => {
     let formErrors = {};
     let hasErrors = false;
 
-    // Clear previous general error
     setGeneralError('');
 
-    // Check for empty fields
     if (!username || !password || !confirmPassword || !email) {
       formErrors.general = 'All fields are required!';
       hasErrors = true;
     }
 
-    // Check if passwords match
     if (password !== confirmPassword) {
       formErrors.passwordsMatch = 'Passwords do not match!';
       hasErrors = true;
     }
 
-    // If there are errors, set the general error message
     if (hasErrors) {
       setGeneralError(formErrors.general || formErrors.passwordsMatch);
       return;
     }
 
-    // If there are no errors, submit the form
     console.log('Signup Submitted', { username, password, email });
-    // Handle the actual form submission logic here (e.g., API call)
   };
 
   return (
